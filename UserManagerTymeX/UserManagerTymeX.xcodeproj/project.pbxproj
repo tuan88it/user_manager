@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3937E87A2D64D69300FBCA4F /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8792D64D69300FBCA4F /* Domain */; };
+		3937E8D52D64E4D100FBCA4F /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8D42D64E4D100FBCA4F /* Data */; };
+		3937E8D82D64E4DE00FBCA4F /* Infrastructure in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8D72D64E4DE00FBCA4F /* Infrastructure */; };
+		3937E8DB2D64E4EA00FBCA4F /* LocalStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8DA2D64E4EA00FBCA4F /* LocalStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3937E8DB2D64E4EA00FBCA4F /* LocalStorage in Frameworks */,
+				3937E8D52D64E4D100FBCA4F /* Data in Frameworks */,
+				3937E8D82D64E4DE00FBCA4F /* Infrastructure in Frameworks */,
 				3937E87A2D64D69300FBCA4F /* Domain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +147,9 @@
 			name = UserManagerTymeX;
 			packageProductDependencies = (
 				3937E8792D64D69300FBCA4F /* Domain */,
+				3937E8D42D64E4D100FBCA4F /* Data */,
+				3937E8D72D64E4DE00FBCA4F /* Infrastructure */,
+				3937E8DA2D64E4EA00FBCA4F /* LocalStorage */,
 			);
 			productName = UserManagerTymeX;
 			productReference = 3953CBAE2D64B4A600F18F56 /* UserManagerTymeX.app */;
@@ -226,6 +235,9 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				3937E8782D64D69300FBCA4F /* XCLocalSwiftPackageReference "Package/Domain" */,
+				3937E8D32D64E4D100FBCA4F /* XCLocalSwiftPackageReference "Package/Data" */,
+				3937E8D62D64E4DE00FBCA4F /* XCLocalSwiftPackageReference "Package/Infrastructure" */,
+				3937E8D92D64E4EA00FBCA4F /* XCLocalSwiftPackageReference "Package/LocalStorage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3953CBAF2D64B4A600F18F56 /* Products */;
@@ -596,12 +608,36 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Package/Domain;
 		};
+		3937E8D32D64E4D100FBCA4F /* XCLocalSwiftPackageReference "Package/Data" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/Data;
+		};
+		3937E8D62D64E4DE00FBCA4F /* XCLocalSwiftPackageReference "Package/Infrastructure" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/Infrastructure;
+		};
+		3937E8D92D64E4EA00FBCA4F /* XCLocalSwiftPackageReference "Package/LocalStorage" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/LocalStorage;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		3937E8792D64D69300FBCA4F /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Domain;
+		};
+		3937E8D42D64E4D100FBCA4F /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+		3937E8D72D64E4DE00FBCA4F /* Infrastructure */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Infrastructure;
+		};
+		3937E8DA2D64E4EA00FBCA4F /* LocalStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocalStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
