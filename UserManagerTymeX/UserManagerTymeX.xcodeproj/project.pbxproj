@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3953CBFB2D64C04D00F18F56 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 3953CBFA2D64C04D00F18F56 /* Domain */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3953CBC52D64B4A800F18F56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3953CBFB2D64C04D00F18F56 /* Domain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = UserManagerTymeX;
 			packageProductDependencies = (
+				3953CBFA2D64C04D00F18F56 /* Domain */,
 			);
 			productName = UserManagerTymeX;
 			productReference = 3953CBAE2D64B4A600F18F56 /* UserManagerTymeX.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 3953CBA52D64B4A600F18F56;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3953CBF92D64C04D00F18F56 /* XCLocalSwiftPackageReference "Package/Domain" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3953CBAF2D64B4A600F18F56 /* Products */;
 			projectDirPath = "";
@@ -571,6 +580,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3953CBF92D64C04D00F18F56 /* XCLocalSwiftPackageReference "Package/Domain" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/Domain;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3953CBFA2D64C04D00F18F56 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3953CBA62D64B4A600F18F56 /* Project object */;
 }
