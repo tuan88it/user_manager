@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3953CBFB2D64C04D00F18F56 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 3953CBFA2D64C04D00F18F56 /* Domain */; };
+		3937E87A2D64D69300FBCA4F /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8792D64D69300FBCA4F /* Domain */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +31,7 @@
 		3953CBAE2D64B4A600F18F56 /* UserManagerTymeX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserManagerTymeX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3953CBC42D64B4A800F18F56 /* UserManagerTymeXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserManagerTymeXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3953CBCE2D64B4A800F18F56 /* UserManagerTymeXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserManagerTymeXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39CC51F42D64D4A7002B1879 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -69,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3953CBFB2D64C04D00F18F56 /* Domain in Frameworks */,
+				3937E87A2D64D69300FBCA4F /* Domain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +97,7 @@
 				3953CBB02D64B4A600F18F56 /* UserManagerTymeX */,
 				3953CBC72D64B4A800F18F56 /* UserManagerTymeXTests */,
 				3953CBD12D64B4A800F18F56 /* UserManagerTymeXUITests */,
+				39CC51F32D64D4A7002B1879 /* Frameworks */,
 				3953CBAF2D64B4A600F18F56 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,6 +110,14 @@
 				3953CBCE2D64B4A800F18F56 /* UserManagerTymeXUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		39CC51F32D64D4A7002B1879 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39CC51F42D64D4A7002B1879 /* XCTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +140,7 @@
 			);
 			name = UserManagerTymeX;
 			packageProductDependencies = (
-				3953CBFA2D64C04D00F18F56 /* Domain */,
+				3937E8792D64D69300FBCA4F /* Domain */,
 			);
 			productName = UserManagerTymeX;
 			productReference = 3953CBAE2D64B4A600F18F56 /* UserManagerTymeX.app */;
@@ -215,7 +225,7 @@
 			mainGroup = 3953CBA52D64B4A600F18F56;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				3953CBF92D64C04D00F18F56 /* XCLocalSwiftPackageReference "Package/Domain" */,
+				3937E8782D64D69300FBCA4F /* XCLocalSwiftPackageReference "Package/Domain" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3953CBAF2D64B4A600F18F56 /* Products */;
@@ -582,14 +592,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		3953CBF92D64C04D00F18F56 /* XCLocalSwiftPackageReference "Package/Domain" */ = {
+		3937E8782D64D69300FBCA4F /* XCLocalSwiftPackageReference "Package/Domain" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Package/Domain;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3953CBFA2D64C04D00F18F56 /* Domain */ = {
+		3937E8792D64D69300FBCA4F /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Domain;
 		};
