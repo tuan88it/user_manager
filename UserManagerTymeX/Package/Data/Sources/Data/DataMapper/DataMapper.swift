@@ -29,8 +29,8 @@ public final class DefaultDataMapper: DataMapper {
             userId: dto.id,
             name: dto.name,
             login: dto.login,
-            avatarUrl: dto.avatarURL,
-            htmlUrl: dto.htmlURL,
+            avatarUrl: dto.avatarUrl,
+            htmlUrl: dto.htmlUrl,
             location: dto.location,
             followers: dto.followers ?? 0,
             following: dto.following ?? 0
