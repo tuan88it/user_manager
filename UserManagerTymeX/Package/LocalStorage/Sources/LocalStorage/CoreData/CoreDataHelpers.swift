@@ -14,8 +14,6 @@ extension ManagedEntity where Self: NSManagedObject {
     
     static var entityName: String {
         return String(describing: Self.self)
-//        let suffixIndex = nameMO.index(nameMO.endIndex, offsetBy: -2)
-//        return String(nameMO[..<suffixIndex])
     }
     
     static func insertNew(in context: NSManagedObjectContext) -> Self? {

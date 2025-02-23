@@ -11,6 +11,9 @@
 		3937E8D52D64E4D100FBCA4F /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8D42D64E4D100FBCA4F /* Data */; };
 		3937E8D82D64E4DE00FBCA4F /* Infrastructure in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8D72D64E4DE00FBCA4F /* Infrastructure */; };
 		3937E8DB2D64E4EA00FBCA4F /* LocalStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8DA2D64E4EA00FBCA4F /* LocalStorage */; };
+		39AF1D3D2D6AD07800E85EA3 /* AppCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF1D3C2D6AD07800E85EA3 /* AppCommon */; };
+		39AF1D402D6AD08700E85EA3 /* UserPresentation in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF1D3F2D6AD08700E85EA3 /* UserPresentation */; };
+		39AF1D492D6B056300E85EA3 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF1D482D6B056300E85EA3 /* DependencyInjection */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39AF1D3D2D6AD07800E85EA3 /* AppCommon in Frameworks */,
+				39AF1D492D6B056300E85EA3 /* DependencyInjection in Frameworks */,
+				39AF1D402D6AD08700E85EA3 /* UserPresentation in Frameworks */,
 				3937E8DB2D64E4EA00FBCA4F /* LocalStorage in Frameworks */,
 				3937E8D52D64E4D100FBCA4F /* Data in Frameworks */,
 				3937E8D82D64E4DE00FBCA4F /* Infrastructure in Frameworks */,
@@ -150,6 +156,9 @@
 				3937E8D42D64E4D100FBCA4F /* Data */,
 				3937E8D72D64E4DE00FBCA4F /* Infrastructure */,
 				3937E8DA2D64E4EA00FBCA4F /* LocalStorage */,
+				39AF1D3C2D6AD07800E85EA3 /* AppCommon */,
+				39AF1D3F2D6AD08700E85EA3 /* UserPresentation */,
+				39AF1D482D6B056300E85EA3 /* DependencyInjection */,
 			);
 			productName = UserManagerTymeX;
 			productReference = 3953CBAE2D64B4A600F18F56 /* UserManagerTymeX.app */;
@@ -238,6 +247,9 @@
 				3937E8D32D64E4D100FBCA4F /* XCLocalSwiftPackageReference "Package/Data" */,
 				3937E8D62D64E4DE00FBCA4F /* XCLocalSwiftPackageReference "Package/Infrastructure" */,
 				3937E8D92D64E4EA00FBCA4F /* XCLocalSwiftPackageReference "Package/LocalStorage" */,
+				39AF1D3B2D6AD07800E85EA3 /* XCLocalSwiftPackageReference "Package/AppCommon" */,
+				39AF1D3E2D6AD08700E85EA3 /* XCLocalSwiftPackageReference "Package/UserPresentation" */,
+				39AF1D472D6B056300E85EA3 /* XCLocalSwiftPackageReference "Package/DependencyInjection" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3953CBAF2D64B4A600F18F56 /* Products */;
@@ -620,6 +632,18 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Package/LocalStorage;
 		};
+		39AF1D3B2D6AD07800E85EA3 /* XCLocalSwiftPackageReference "Package/AppCommon" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/AppCommon;
+		};
+		39AF1D3E2D6AD08700E85EA3 /* XCLocalSwiftPackageReference "Package/UserPresentation" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/UserPresentation;
+		};
+		39AF1D472D6B056300E85EA3 /* XCLocalSwiftPackageReference "Package/DependencyInjection" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/DependencyInjection;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -638,6 +662,18 @@
 		3937E8DA2D64E4EA00FBCA4F /* LocalStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LocalStorage;
+		};
+		39AF1D3C2D6AD07800E85EA3 /* AppCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppCommon;
+		};
+		39AF1D3F2D6AD08700E85EA3 /* UserPresentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserPresentation;
+		};
+		39AF1D482D6B056300E85EA3 /* DependencyInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DependencyInjection;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
