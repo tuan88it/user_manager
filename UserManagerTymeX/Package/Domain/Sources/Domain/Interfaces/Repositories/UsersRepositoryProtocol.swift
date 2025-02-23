@@ -9,6 +9,6 @@ import Foundation
 import RxSwift
 
 public protocol UserRepository {
-    func fetchUsers(since: Int, perPage: Int) -> Observable<[User]>
-    func fetchUserDetail(userName: String) -> Single<UserDetail>
+    func fetchUsers(offset: Int, perPage: Int) -> Observable<[User]>
+    func fetchUserDetail(userName: String) -> Observable<UserDetail>
 }
