@@ -17,7 +17,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.8.0"),
         .package(path: "../Infrastructure"),
-        .package(path: "../LocalStorage")
+        .package(path: "../LocalStorage"),
+        .package(path: "../Domain")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -26,6 +27,7 @@ let package = Package(
             name: "Data",
             dependencies: [
                 "RxSwift",
+                "Domain",
                 "Infrastructure",
                 "LocalStorage"
             ]

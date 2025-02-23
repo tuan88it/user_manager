@@ -16,7 +16,7 @@ public protocol NetworkClientProtocol {
     func request(_ request: Request) -> Single<Void>
 }
 
-public final class NetworkClient<T: URLRequestConvertible>: NetworkClientProtocol {
+open class NetworkClient<T: URLRequestConvertible>: NetworkClientProtocol {
     public typealias Request = T
     private let provider: NetworkConfiguration
     private let logger: NetworkLogger

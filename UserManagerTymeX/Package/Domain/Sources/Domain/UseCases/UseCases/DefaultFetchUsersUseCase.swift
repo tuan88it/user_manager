@@ -14,7 +14,7 @@ public final class DefaultFetchUsersUseCase: FetchUsersUseCase {
         self.repository = repository
     }
     
-    public func execute(since: Int, perPage: Int) -> Observable<[User]> {
-        return repository.fetchUsers(since: since, perPage: perPage)
+    public func execute(offset: Int, perPage: Int) -> Observable<[User]> {
+        return repository.fetchUsers(offset: offset, perPage: perPage)
     }
 }

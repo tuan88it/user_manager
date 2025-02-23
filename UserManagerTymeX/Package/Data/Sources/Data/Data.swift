@@ -8,9 +8,18 @@ import Domain
 import LocalStorage
 
 public class Utils {
+    nonisolated(unsafe) public static let shared = Utils()
+    let repo = DefaultUserRepository(
+        dependencies: DefaultRepositoryDependencies(
+            networkClient: NetworkClient<UserRouter>(),
+            mapper: DefaultDataMapper(),
+            store: DefaultUserCoreData(coreDataStack: CoreDataStack(version: CoreDataStack.Version.actual))))
+    public init() {
+
+    }
     public static func checkAPI() {
         let networkClient: NetworkClient<UserRouter> = NetworkClient()
-        let request: Single<[UserDTO]> = networkClient.request(.users(since: 0, perPage: 20))
+        let request: Single<[UserDTO]> = networkClient.request(.users(offset: 0, perPage: 20))
         request.subscribe(onSuccess: { users in
             print(users)
         })
@@ -28,6 +37,15 @@ public class Utils {
                     print(data)
                 })
             })
+        })
+    }
+    public static func checkRepo() {
+
+        Utils.shared.repo.fetchUsers(offset: 0, perPage: 20).subscribe(onNext: { data in
+            print(data)
+        })
+        Utils.shared.repo.fetchUserDetail(userName: "mojombo").subscribe(onNext: { userDetail in
+            print(userDetail)
         })
     }
 }

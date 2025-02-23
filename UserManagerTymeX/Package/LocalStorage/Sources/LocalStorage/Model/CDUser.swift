@@ -13,6 +13,9 @@ public extension CDUser {
     func toUser() -> User {
         return User(userId: Int(self.id), login: self.login ?? "", avatarUrl: self.avatarUrl, htmlUrl: self.htmlUrl)
     }
+    func toUserDetail() -> UserDetail {
+        return UserDetail(userId: Int(self.id), name: self.name, login: self.login ?? "", avatarUrl: self.avatarUrl, htmlUrl: self.htmlUrl, location: self.location, followers: Int(self.followers ?? 0), following: Int(self.following ?? 0))
+    }
     func update(_ data: User) {
         self.id = Int16(data.userId)
         self.login = data.login

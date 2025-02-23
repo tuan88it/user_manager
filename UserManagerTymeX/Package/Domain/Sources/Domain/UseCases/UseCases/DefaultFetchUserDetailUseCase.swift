@@ -14,7 +14,7 @@ public final class DefaultFetchUserDetailUseCase: FetchUserDetailUseCase {
         self.repository = repository
     }
     
-    public func execute(userName: String) -> Single<UserDetail> {
+    public func execute(userName: String) -> Observable<UserDetail> {
         return repository.fetchUserDetail(userName: userName)
     }
 }

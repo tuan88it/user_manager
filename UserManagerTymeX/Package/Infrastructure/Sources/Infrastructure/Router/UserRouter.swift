@@ -10,7 +10,7 @@ import Alamofire
 
 public enum UserRouter: URLRequestConvertible {
     static let baseUrl = "https://api.github.com"
-    case users(since: Int, perPage: Int)
+    case users(offset: Int, perPage: Int)
     case userDetail(userName: String)
     
     var endpoint: String {

@@ -14,12 +14,12 @@ public protocol PersistentStore {
     func inserts<T: NSManagedObject, V>(
         items: [V],
         map: @escaping (V, NSManagedObjectContext) -> T?
-    ) -> Observable<Void>
+    ) -> Observable<[V]>
     func insertsAndUpdates<T: NSManagedObject, V>(
         items: [V],
         fetchsRequest: @escaping (V) -> NSFetchRequest<T>,
         update: @escaping (V, T) -> Void
-    ) -> Observable<Void>
+    ) -> Observable<[V]>
     func count<T>(_ fetchRequest: NSFetchRequest<T>) -> Observable<Int>
     func fetch<T, V>(_ fetchRequest: NSFetchRequest<T>,
         map: @escaping (T) throws -> V?) -> Observable<[V]>
@@ -54,7 +54,7 @@ public class CoreDataStack: PersistentStore {
         items: [V],
         fetchsRequest: @escaping (V) -> NSFetchRequest<T>,
         update: @escaping (V, T) -> Void
-    ) -> Observable<Void> {
+    ) -> Observable<[V]> {
         return Observable.create { [weak self] subscriber in
             guard let self = self else {
                 subscriber.onCompleted()
@@ -77,7 +77,7 @@ public class CoreDataStack: PersistentStore {
                             try backgroundContext.save()
                         }
                     }
-                    subscriber.onNext(())
+                    subscriber.onNext(items)
                     subscriber.onCompleted()
                 } catch {
                     subscriber.onError(error)
@@ -90,7 +90,7 @@ public class CoreDataStack: PersistentStore {
     public func inserts<T: NSManagedObject, V>(
         items: [V],
         map: @escaping (V, NSManagedObjectContext) -> T?
-    ) -> Observable<Void> {
+    ) -> Observable<[V]> {
         return Observable.create { [weak self] subscriber in
             guard let self = self else {
                 subscriber.onCompleted()
@@ -106,7 +106,7 @@ public class CoreDataStack: PersistentStore {
                     if backgroundContext.hasChanges {
                         try backgroundContext.save()
                     }
-                    subscriber.onNext(())
+                    subscriber.onNext(items)
                     subscriber.onCompleted()
                 } catch {
                     subscriber.onError(error)

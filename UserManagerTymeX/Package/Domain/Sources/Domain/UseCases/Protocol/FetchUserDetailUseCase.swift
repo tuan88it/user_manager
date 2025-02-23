@@ -8,5 +8,5 @@
 import RxSwift
 
 public protocol FetchUserDetailUseCase {
-    func execute(userName: String) -> Single<UserDetail>
+    func execute(userName: String) -> Observable<UserDetail>
 }
