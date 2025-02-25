@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B72CA776-FC45-4AAF-AE4F-DB77E2CDC34B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "UserPresentationTests",
+        "name" : "UserPresentationTests"
+      }
+    }
+  ],
+  "version" : 1
+}
