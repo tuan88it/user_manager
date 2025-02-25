@@ -105,7 +105,7 @@ class UserCell: BaseTableViewCell {
     func configure() {
         if let user = self.viewModel?.user {
             nameLabel.text = user.login
-            urlLabel.text = user.htmlUrl
+            setURLText(user.htmlUrl)
             if let avatarUrl = user.avatarUrl, let url = URL(string: avatarUrl) {
                 avatarImageView.kf.setImage(with: url)
             }
@@ -113,7 +113,7 @@ class UserCell: BaseTableViewCell {
         locationStackView.isHidden = true
         if let userDetail = viewModel?.userDetail {
             nameLabel.text = userDetail.login
-            urlLabel.text = userDetail.htmlUrl
+            setURLText(userDetail.htmlUrl)
             if let avatarUrl = userDetail.avatarUrl, let url = URL(string: avatarUrl) {
                 avatarImageView.kf.setImage(with: url)
             }
@@ -123,6 +123,16 @@ class UserCell: BaseTableViewCell {
             }
             urlLabel.isHidden = true
         }
+    }
+    private func setURLText(_ urlString: String?) {
+        guard let urlString = urlString else { return }
+        let attributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.blue,
+                .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+
+        let attributedString = NSAttributedString(string: urlString, attributes: attributes)
+        urlLabel.attributedText = attributedString
     }
 }
 
@@ -144,7 +154,7 @@ extension UserCell: BaseViewConfiguration {
         infoStackView.addArrangedSubview(urlLabel)
         infoStackView.addArrangedSubview(locationStackView)
         infoStackView.addArrangedSubview(UIView())
-        
+
         locationStackView.addArrangedSubview(locationIcon)
         locationStackView.addArrangedSubview(locationLabel)
     }

@@ -5,7 +5,6 @@
 //  Created by nguyen minh tuan on 2/23/25.
 //
 
-import Foundation
 import UIKit
 
 public protocol Link {}

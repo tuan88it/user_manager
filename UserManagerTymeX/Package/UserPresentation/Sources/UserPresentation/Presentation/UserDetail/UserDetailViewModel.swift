@@ -11,7 +11,6 @@ import Domain
 import AppCommon
 
 // MARK: - Protocols
-
 protocol UserDetailViewModelInputs {
     func viewDidLoad()
 }

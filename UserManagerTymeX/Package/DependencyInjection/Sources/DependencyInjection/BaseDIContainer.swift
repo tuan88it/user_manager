@@ -6,7 +6,7 @@
 //
 
 
-import UIKit
+import Foundation
 
 @MainActor
 public protocol BaseDIContainer {

@@ -1,0 +1,44 @@
+{
+  "configurations" : [
+    {
+      "id" : "996D2F21-440B-497E-8BE1-22F4F947C057",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:UserManagerTymeX.xcodeproj",
+      "identifier" : "3953CBC32D64B4A800F18F56",
+      "name" : "MyApp"
+    },
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:UserManagerTymeX.xcodeproj",
+        "identifier" : "3953CBC32D64B4A800F18F56",
+        "name" : "UserManagerTymeXTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:UserManagerTymeX.xcodeproj",
+        "identifier" : "3953CBCD2D64B4A800F18F56",
+        "name" : "UserManagerTymeXUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:UserPresentation",
+        "identifier" : "UserPresentationTests",
+        "name" : "UserPresentationTests"
+      }
+    }
+  ],
+  "version" : 1
+}

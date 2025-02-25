@@ -12,7 +12,6 @@ import AppCommon
 import UIKit
 
 // MARK: - Protocols
-
 protocol UserListViewModelInputs {
     func viewDidLoad()
     func refresh()

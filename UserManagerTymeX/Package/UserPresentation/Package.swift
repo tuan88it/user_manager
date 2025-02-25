@@ -43,7 +43,12 @@ let package = Package(
         ),
         .testTarget(
             name: "UserPresentationTests",
-            dependencies: ["UserPresentation"]
+            dependencies: [
+                "UserPresentation",
+                .product(name: "RxTest", package: "RxSwift"),
+                .product(name: "RxBlocking", package: "RxSwift")
+            ],
+            path: "Tests/UserPresentationTests"
         ),
     ]
 )

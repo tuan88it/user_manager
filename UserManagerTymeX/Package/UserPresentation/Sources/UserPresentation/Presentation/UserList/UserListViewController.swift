@@ -55,7 +55,17 @@ final class UserListViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
     }
+    
     override func setupBinding() {
+        bindingDataSource()
+        bindingEvents()
+        bindingInfiniteScroll()
+    }
+}
+
+// MARK: - UITABLEVIEW DATASOURCE + DELEGATE
+extension UserListViewController {
+    func bindingDataSource() {
         // RxDataSources configuration
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, BaseCellViewModel>>(
             configureCell: { _, tableView, indexPath, cellViewModel in
@@ -67,16 +77,19 @@ final class UserListViewController: BaseViewController {
         // Bind data to tableView
         viewModel.outputs.cellModels
             .map { it in
-            return [SectionModel(model: "Users", items: it)]
-        }
+                return [SectionModel(model: "Users", items: it)]
+            }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+    }
+    func bindingEvents() {
         tableView.rx.modelSelected(UserCellViewModel.self).subscribe(onNext: { [weak self] user in
             if let login = user.user?.login {
                 self?.output.onShowDetail?(login)
             }
         }).disposed(by: disposeBag)
-        
+    }
+    func bindingInfiniteScroll() {
         tableView.rx.willDisplayCell.withLatestFrom(viewModel.outputs.isLoading) { ($0, $1) }
             .withUnretained(self)
             .filter { owner, args in
@@ -91,8 +104,5 @@ final class UserListViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
-}
-extension UserListViewController {
-
 }
 
