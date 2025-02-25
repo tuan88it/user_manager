@@ -11,6 +11,10 @@
 		3937E8D52D64E4D100FBCA4F /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8D42D64E4D100FBCA4F /* Data */; };
 		3937E8D82D64E4DE00FBCA4F /* Infrastructure in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8D72D64E4DE00FBCA4F /* Infrastructure */; };
 		3937E8DB2D64E4EA00FBCA4F /* LocalStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3937E8DA2D64E4EA00FBCA4F /* LocalStorage */; };
+		39AF1D3D2D6AD07800E85EA3 /* AppCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF1D3C2D6AD07800E85EA3 /* AppCommon */; };
+		39AF1D402D6AD08700E85EA3 /* UserPresentation in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF1D3F2D6AD08700E85EA3 /* UserPresentation */; };
+		39AF1D492D6B056300E85EA3 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF1D482D6B056300E85EA3 /* DependencyInjection */; };
+		39AF1ECD2D6DA88C00E85EA3 /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 39AF1ECC2D6DA88C00E85EA3 /* TestPlan.xctestplan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,7 @@
 		3953CBAE2D64B4A600F18F56 /* UserManagerTymeX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserManagerTymeX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3953CBC42D64B4A800F18F56 /* UserManagerTymeXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserManagerTymeXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3953CBCE2D64B4A800F18F56 /* UserManagerTymeXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserManagerTymeXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39AF1ECC2D6DA88C00E85EA3 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		39CC51F42D64D4A7002B1879 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39AF1D3D2D6AD07800E85EA3 /* AppCommon in Frameworks */,
+				39AF1D492D6B056300E85EA3 /* DependencyInjection in Frameworks */,
+				39AF1D402D6AD08700E85EA3 /* UserPresentation in Frameworks */,
 				3937E8DB2D64E4EA00FBCA4F /* LocalStorage in Frameworks */,
 				3937E8D52D64E4D100FBCA4F /* Data in Frameworks */,
 				3937E8D82D64E4DE00FBCA4F /* Infrastructure in Frameworks */,
@@ -100,6 +108,7 @@
 		3953CBA52D64B4A600F18F56 = {
 			isa = PBXGroup;
 			children = (
+				39AF1ECC2D6DA88C00E85EA3 /* TestPlan.xctestplan */,
 				3953CBB02D64B4A600F18F56 /* UserManagerTymeX */,
 				3953CBC72D64B4A800F18F56 /* UserManagerTymeXTests */,
 				3953CBD12D64B4A800F18F56 /* UserManagerTymeXUITests */,
@@ -150,6 +159,9 @@
 				3937E8D42D64E4D100FBCA4F /* Data */,
 				3937E8D72D64E4DE00FBCA4F /* Infrastructure */,
 				3937E8DA2D64E4EA00FBCA4F /* LocalStorage */,
+				39AF1D3C2D6AD07800E85EA3 /* AppCommon */,
+				39AF1D3F2D6AD08700E85EA3 /* UserPresentation */,
+				39AF1D482D6B056300E85EA3 /* DependencyInjection */,
 			);
 			productName = UserManagerTymeX;
 			productReference = 3953CBAE2D64B4A600F18F56 /* UserManagerTymeX.app */;
@@ -234,10 +246,12 @@
 			mainGroup = 3953CBA52D64B4A600F18F56;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				3937E8782D64D69300FBCA4F /* XCLocalSwiftPackageReference "Package/Domain" */,
 				3937E8D32D64E4D100FBCA4F /* XCLocalSwiftPackageReference "Package/Data" */,
 				3937E8D62D64E4DE00FBCA4F /* XCLocalSwiftPackageReference "Package/Infrastructure" */,
 				3937E8D92D64E4EA00FBCA4F /* XCLocalSwiftPackageReference "Package/LocalStorage" */,
+				39AF1D3B2D6AD07800E85EA3 /* XCLocalSwiftPackageReference "Package/AppCommon" */,
+				39AF1D3E2D6AD08700E85EA3 /* XCLocalSwiftPackageReference "Package/UserPresentation" */,
+				39AF1D472D6B056300E85EA3 /* XCLocalSwiftPackageReference "Package/DependencyInjection" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3953CBAF2D64B4A600F18F56 /* Products */;
@@ -256,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39AF1ECD2D6DA88C00E85EA3 /* TestPlan.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,10 +619,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		3937E8782D64D69300FBCA4F /* XCLocalSwiftPackageReference "Package/Domain" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Package/Domain;
-		};
 		3937E8D32D64E4D100FBCA4F /* XCLocalSwiftPackageReference "Package/Data" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Package/Data;
@@ -619,6 +630,18 @@
 		3937E8D92D64E4EA00FBCA4F /* XCLocalSwiftPackageReference "Package/LocalStorage" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Package/LocalStorage;
+		};
+		39AF1D3B2D6AD07800E85EA3 /* XCLocalSwiftPackageReference "Package/AppCommon" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/AppCommon;
+		};
+		39AF1D3E2D6AD08700E85EA3 /* XCLocalSwiftPackageReference "Package/UserPresentation" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/UserPresentation;
+		};
+		39AF1D472D6B056300E85EA3 /* XCLocalSwiftPackageReference "Package/DependencyInjection" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Package/DependencyInjection;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -638,6 +661,18 @@
 		3937E8DA2D64E4EA00FBCA4F /* LocalStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LocalStorage;
+		};
+		39AF1D3C2D6AD07800E85EA3 /* AppCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppCommon;
+		};
+		39AF1D3F2D6AD08700E85EA3 /* UserPresentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserPresentation;
+		};
+		39AF1D482D6B056300E85EA3 /* DependencyInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DependencyInjection;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

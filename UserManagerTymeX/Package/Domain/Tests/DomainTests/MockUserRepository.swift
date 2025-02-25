@@ -10,6 +10,8 @@ import RxSwift
 @testable import Domain
 
 final class MockUserRepository: UserRepository {
+    
+    
     var mockUsers: [User] = [
         User(
             userId: 101,
@@ -34,7 +36,8 @@ final class MockUserRepository: UserRepository {
             htmlUrl: "",
             location: "",
             followers: 0,
-            following: 0
+            following: 0,
+            blog: ""
         ),
         UserDetail(
             userId: 101,
@@ -44,7 +47,8 @@ final class MockUserRepository: UserRepository {
             htmlUrl: "https://github.com/jvantuyl",
             location: "Plumas County, California, USA",
             followers: 66,
-            following: 15
+            following: 15,
+            blog: ""
         ),
         UserDetail(
             userId: 102,
@@ -54,15 +58,16 @@ final class MockUserRepository: UserRepository {
             htmlUrl: "https://github.com/BrianTheCoder",
             location: "Santa Monica,CA",
             followers: 102,
-            following: 32
+            following: 32,
+            blog: ""
         )
     ]
     
-    func fetchUsers(since: Int, perPage: Int) -> Observable<[User]> {
+    func fetchUsers(offset: Int, perPage: Int) -> Observable<[User]> {
         return Observable.just(mockUsers)
     }
     
-    func fetchUserDetail(userName: String) -> Single<UserDetail> {
-        return Single.just(mockUserDetails.filter { $0.login == userName }.first ?? mockUserDetails[0])
+    func fetchUserDetail(userName: String) -> Observable<UserDetail> {
+        return Observable.just(mockUserDetails.filter { $0.login == userName }.first ?? mockUserDetails[0])
     }
 }

@@ -33,7 +33,7 @@ final class DefaultFetchUsersUseCaseTests: XCTestCase {
         let expectedUsers = repository.mockUsers
         
         // When
-        let result = try useCase.execute(since: 0, perPage: 10).toBlocking().single()
+        let result = try useCase.execute(offset: 0, perPage: 10).toBlocking().single()
         
         // Then
         XCTAssertEqual(result, expectedUsers)
