@@ -14,7 +14,8 @@ public struct UserDetail: Equatable {
     public let location: String?
     public let followers: Int
     public let following: Int
-    public init(userId: Int, name: String?, login: String, avatarUrl: String?, htmlUrl: String?, location: String?, followers: Int, following: Int) {
+    public let blog: String?
+    public init(userId: Int, name: String?, login: String, avatarUrl: String?, htmlUrl: String?, location: String?, followers: Int, following: Int, blog: String?) {
         self.userId = userId
         self.name = name
         self.login = login
@@ -23,5 +24,6 @@ public struct UserDetail: Equatable {
         self.location = location
         self.followers = followers
         self.following = following
+        self.blog = blog
     }
 }

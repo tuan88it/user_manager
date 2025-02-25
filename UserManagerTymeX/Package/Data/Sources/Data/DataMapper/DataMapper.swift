@@ -33,7 +33,8 @@ public final class DefaultDataMapper: DataMapper {
             htmlUrl: dto.htmlUrl,
             location: dto.location,
             followers: dto.followers ?? 0,
-            following: dto.following ?? 0
+            following: dto.following ?? 0,
+            blog: dto.blog
         )
     }
 }

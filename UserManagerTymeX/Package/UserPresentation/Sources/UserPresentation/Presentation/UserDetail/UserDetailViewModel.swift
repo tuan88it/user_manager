@@ -18,6 +18,7 @@ protocol UserDetailViewModelInputs {
 
 protocol UserDetailViewModelOutputs {
     var error: Observable<Error> { get }
+    var cellModels: Observable<[BaseCellViewModel]> { get }
 }
 
 protocol UserDetailViewModelType {
@@ -29,9 +30,11 @@ final class UserDetailViewModel: BaseViewModel {
 
     private let useCase: FetchUserDetailUseCase
     private let errorRelay = PublishRelay<Error>()
-
-    init(useCase: FetchUserDetailUseCase) {
+    private let cellsReplay = BehaviorRelay<[BaseCellViewModel]>.init(value: [])
+    private let login: String
+    init(useCase: FetchUserDetailUseCase, login: String) {
         self.useCase = useCase
+        self.login = login
     }
 }
 
@@ -45,6 +48,7 @@ extension UserDetailViewModel: UserDetailViewModelType {
 // MARK: - UserDetailViewModelOutputs
 
 extension UserDetailViewModel: UserDetailViewModelOutputs {
+    var cellModels: RxSwift.Observable<[any AppCommon.BaseCellViewModel]> { cellsReplay.asObservable() }
     var error: Observable<Error> { errorRelay.asObservable() }
 }
 
@@ -52,7 +56,20 @@ extension UserDetailViewModel: UserDetailViewModelOutputs {
 
 extension UserDetailViewModel: UserDetailViewModelInputs {
     func viewDidLoad() {
-
+        useCase.execute(userName: self.login)
+            .trackActivity(self.loading).observe(on: MainScheduler.instance)
+            .subscribe(with: self, onNext: { owner, userDetail in
+            let userDetailCell = UserCellViewModel(user: nil, userDetail: userDetail)
+            let followCell = UserFollowCellViewModel(userDetail: userDetail)
+            let blogCell = UserBlogCellViewModel(userDetail: userDetail)
+            let items: [BaseCellViewModel] = [
+                userDetailCell,
+                followCell,
+                blogCell
+            ]
+            owner.cellsReplay.accept(items)
+        }, onError: { owner, error in
+            
+        }).disposed(by: disposeBag)
     }
-
 }

@@ -9,6 +9,7 @@ import RxSwift
 import RxCocoa
 import Domain
 import AppCommon
+import UIKit
 
 // MARK: - Protocols
 
@@ -17,10 +18,13 @@ protocol UserListViewModelInputs {
     func refresh()
     func reload()
     func load(offset: Int, perPage: Int)
+    func loadMore()
 }
 
 protocol UserListViewModelOutputs {
     var error: Observable<Error> { get }
+    var cellModels: Observable<[BaseCellViewModel]> { get }
+    var isLoading: Observable<Bool> { get }
 }
 
 protocol UserListViewModelType {
@@ -29,10 +33,12 @@ protocol UserListViewModelType {
 }
 
 final class UserListViewModel: BaseViewModel {
-    
+
     private let useCase: FetchUsersUseCase
     private let errorRelay = PublishRelay<Error>()
-    
+    private let userReplay = BehaviorRelay<[BaseCellViewModel]>.init(value: [])
+    private var currentPage = 0
+
     init(useCase: FetchUsersUseCase) {
         self.useCase = useCase
     }
@@ -48,28 +54,50 @@ extension UserListViewModel: UserListViewModelType {
 // MARK: - UserListViewModelOutputs
 
 extension UserListViewModel: UserListViewModelOutputs {
+    var isLoading: Observable<Bool> { showLoading }
     var error: Observable<Error> { errorRelay.asObservable() }
+    var cellModels: Observable<[BaseCellViewModel]> { userReplay.asObservable() }
 }
 
 // MARK: - UserListViewModelInputs
 
 extension UserListViewModel: UserListViewModelInputs {
     func viewDidLoad() {
-        useCase.execute(offset: 0, perPage: 20).subscribe(onNext: { [weak self] users in
-            guard let self = self else { return }
-            print(users)
-        }).disposed(by: disposeBag)
+        loadUsers()
     }
-    
+
     func refresh() {
-        
+
     }
-    
+
     func reload() {
-        
+
     }
     func load(offset: Int, perPage: Int) {
-        
+
     }
-    
+    func loadMore() {
+        loadUsers()
+    }
+}
+private extension UserListViewModel {
+    func loadUsers() {
+        let offset = currentPage * Constants.perPage
+        useCase.execute(offset: offset, perPage: Constants.perPage)
+            .trackActivity(self.loading).observe(on: MainScheduler.instance)
+            .subscribe(with: self, onNext: { owner, users in
+            var oldCellsItems = owner.userReplay.value
+            users.forEach { user in
+                oldCellsItems.append(UserCellViewModel(user: user, userDetail: nil))
+            }
+            owner.userReplay.accept(oldCellsItems)
+            if offset == 0 {
+                owner.currentPage = 1
+            } else {
+                owner.currentPage += 1
+            }
+        }, onError: { owner, error in
+                owner.errorRelay.accept(error)
+            }).disposed(by: disposeBag)
+    }
 }

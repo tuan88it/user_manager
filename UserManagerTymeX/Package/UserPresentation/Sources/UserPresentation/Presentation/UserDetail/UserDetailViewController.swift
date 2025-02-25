@@ -23,7 +23,10 @@ final class UserDetailViewController: BaseViewController {
         control.tintColor = .gray
         return control
     }()
-    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        return tableView
+    }()
     
     init(viewModel: UserDetailViewModelType, output: UserDetailViewControllerParams) {
         self.viewModel = viewModel
@@ -36,9 +39,38 @@ final class UserDetailViewController: BaseViewController {
     }
     
     override func setupUI() {
+        view.backgroundColor = .white
+        title = "User Details"
+        
+        // Setup TableView
+        tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.identifierString)
+        tableView.register(UserBlogCell.self, forCellReuseIdentifier: UserBlogCell.identifierString)
+        tableView.register(UserFollowCell.self, forCellReuseIdentifier: UserFollowCell.identifierString)
+        tableView.estimatedRowHeight = 112
+        tableView.separatorStyle = .none
+        view.addSubview(tableView)
+        
+        // Layout using SnapKit
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     override func setupBinding() {
-        
+        // RxDataSources configuration
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, BaseCellViewModel>>(
+            configureCell: { _, tableView, indexPath, cellViewModel in
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier, for: indexPath) as! BaseTableViewCell
+                cell.setViewModel(viewModel: cellViewModel)
+                return cell
+            }
+        )
+        // Bind data to tableView
+        viewModel.outputs.cellModels
+            .map { it in
+                return [SectionModel(model: "UserDetail", items: it)]
+            }
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
 }
 extension UserDetailViewController {

@@ -18,4 +18,6 @@ open class BaseTableViewCell: UITableViewCell {
     }
     
     open func configurationLayout() {}
+    
+    open func setViewModel(viewModel: BaseCellViewModel) {}
 }

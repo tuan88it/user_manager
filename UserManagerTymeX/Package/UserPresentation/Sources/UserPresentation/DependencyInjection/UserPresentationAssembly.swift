@@ -30,14 +30,14 @@ public final class UserPresentationAssembly: Assembly {
             return UserListViewController(viewModel: viewModel, output: output)
         }
         
-        container.register(UserDetailViewModelType.self) { container in
+        container.register(UserDetailViewModelType.self) { (container, login: String) in
             guard let useCase = container.resolve(FetchUserDetailUseCase.self) else {
                 fatalError("FetchUserDetailUseCase dependency could not be resolved")
             }
-            return UserDetailViewModel(useCase: useCase)
+            return UserDetailViewModel(useCase: useCase, login: login)
         }
         container.register(UserDetailViewController.self) { (container, output: UserDetailViewControllerParams) in
-            guard let viewModel = container.resolve(UserDetailViewModelType.self) else {
+            guard let viewModel = container.resolve(UserDetailViewModelType.self, argument: output.login) else {
                 fatalError("UserDetailViewModelType dependency could not be resolved")
             }
             return UserDetailViewController(viewModel: viewModel, output: output)

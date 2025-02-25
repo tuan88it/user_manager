@@ -6,8 +6,11 @@
 //
 
 import Domain
+import Foundation
+import AppCommon
 
-struct UserCellViewModel {
+struct UserCellViewModel: BaseCellViewModel {
+    var cellIdentifier: String = "UserCell"
     let user: User?
     let userDetail: UserDetail?
     init(user: User?, userDetail: UserDetail? = nil) {
