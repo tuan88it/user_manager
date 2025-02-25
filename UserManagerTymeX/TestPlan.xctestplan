@@ -31,13 +31,6 @@
         "identifier" : "3953CBCD2D64B4A800F18F56",
         "name" : "UserManagerTymeXUITests"
       }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:UserPresentation",
-        "identifier" : "UserPresentationTests",
-        "name" : "UserPresentationTests"
-      }
     }
   ],
   "version" : 1
